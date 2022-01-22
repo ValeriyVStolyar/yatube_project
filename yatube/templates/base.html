@@ -16,9 +16,11 @@
       <!-- Подключен файл со стандартными стилями бустрап -->
       {% comment %} <link rel="stylesheet" href="css/bootstrap.min.css"> {% endcomment %}
       <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-      {% block title %}
-        Кто зеркало русской революции?
-      {% endblock %}
+      <title>
+        {% block title %}
+          Кто зеркало русской революции?
+        {% endblock %}
+      </title>
       {% comment %} <title></title> {% endcomment %}
     </head>
     <body>
