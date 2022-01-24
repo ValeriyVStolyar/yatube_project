@@ -10,12 +10,51 @@
     <div class="container py-5">
       <h1>Лев Толстой – зеркало русской революции.</h1>
       <p>
-        Группа тайных поклонников графа.
+        post.group.title
+        {{ post.group.title }}
+        <!-- Группа тайных поклонников графа. -->
       </p>
+
       <article>
+        {% for post in posts %}
+        <p>
+          post.group.title
+          {{ post.group.title }}
+          {{ post.group.description }}
+        </p>
+          <ul>
+            <li>
+              Автор: {{ post.author.get_full_name }}
+            </li>
+            <li>
+              Дата публикации: {{ post.pub_date|date:"d E Y" }}
+            </li>
+          </ul>
+          <p>{{ post.text }}</p>
+          <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
+          {% if not forloop.last %}<hr>{% endif %}
+        {% endfor %}
+        <h2>test</h2>
+        {% for group in groups %}
         <ul>
           <li>
-            Автор: Лев Толстой
+            <p>test1</p>
+            Автор: {{ group.title.get_full_name }}
+          </li>
+          <li>
+            Дата публикации: {{ post.pub_date|date:"d E Y" }}
+          </li>
+        </ul>
+        <p>{{ post.text }}</p>
+        <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
+        {% if not forloop.last %}<hr>{% endif %}
+      {% endfor %}
+      </article>
+      {% comment %} <article>
+        <ul>
+          <li>
+            Автор: {{ post.author.get_full_name }}
+            <!-- Автор: Лев Толстой -->
           </li>
           <li>
             Дата публикации: 30 июля 1854
@@ -72,7 +111,7 @@
           днемъ своимъ очень доволенъ. (1)
         </p>
       </article>
-      <!-- под последним постом нет линии -->
+      <!-- под последним постом нет линии --> {% endcomment %}
     </div>
   </main>
   <!-- Использованы классы бустрапа: -->

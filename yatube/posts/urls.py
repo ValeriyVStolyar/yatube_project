@@ -11,7 +11,7 @@ urlpatterns = [
      #path('group/<slug:slug>/', views.group_posts),
     # path('group/<slug:slug>/', views.group_posts),
     # path('group/', views.group_posts),
-    # path('group/<slug:slug>/', views.group_posts, name='group_list'),
-    path('group/', views.group_posts, name='group_list'),
+    path('group/<slug:slug>/', views.group_posts, name='group_list'),
+    # path('group/', views.group_posts, name='group_list'),
     # path('group/<slug:sl>/<int:n>/<str>', views.group_posts),
 ]
